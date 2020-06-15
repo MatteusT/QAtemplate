@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-9 mb-0">
+        {{ form.question|as_crispy_field }}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Ask Question</button>
+  </form>
+{% if answers %}
+  <br><br>
+  <div class="list-group">
+    {% for answer in answers %}
+      <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ answer.answer}}</h5>
+        </div>
+        <p class="mb-1">{{ answer.context }}</p>
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,6 @@
+django==3.0.6
+django-crispy-forms==1.9.1
+textract==1.6.3
+scikit-learn==0.23.0
+torch==1.5.0
+transformers==2.9.1
